@@ -1,0 +1,6 @@
+{
+  "name": "Pulse Messenger",
+  "description": "A real-time SMS manager and messaging client with a bespoke porcelain-white aesthetic, instant telephony sync, smart categorizations, and custom floating island navigation.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
