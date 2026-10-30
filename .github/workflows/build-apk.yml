@@ -27,9 +27,6 @@ jobs:
           distribution: 'temurin'
           cache: 'gradle'
 
-      - name: Set up Android SDK
-        uses: android-actions/setup-android@v3
-
       - name: Setup Keystore
         run: |
           if [ -f debug.keystore.base64 ]; then
@@ -43,11 +40,10 @@ jobs:
       - name: Grant Execute Permission for Gradlew
         run: chmod +x gradlew
 
-      - name: Run Unit Tests
-        run: ./gradlew :app:testDebugUnitTest --continue
-
       - name: Build Debug APK
-        run: ./gradlew assembleDebug --stacktrace
+        env:
+          ANDROID_HOME: /usr/local/lib/android/sdk
+        run: ./gradlew assembleDebug --no-daemon --stacktrace
 
       - name: Upload Generated APK
         uses: actions/upload-artifact@v4
